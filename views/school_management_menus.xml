@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    main menu with action -->
+    <menuitem id="menu_school_management_root"
+              name="School Management"
+              sequence="1">
+
+        <!--   student submenu without action-->
+        <menuitem id="menu_school_management_student"
+                  name="Student"
+                  action="action_school_management_student"
+                  sequence="1"/>
+
+        <!--    teacher submenu without action-->
+        <menuitem id="menu_school_management_Teacher"
+                  name="Teacher"
+                  action="action_school_management_teacher"
+                  sequence="2"/>
+
+        <menuitem id="menu_school_management_student_subject_list"
+                  name="Subject"
+                  action="action_school_management_subject"
+                  sequence="5"/>
+
+        <menuitem id="menu_school_management_Class"
+                  name="Class"
+                  action="action_school_management_class"
+                  sequence="6"/>
+
+        <menuitem id="menu_school_management_Result"
+                  name="Result"
+                  action="action_school_management_result"
+        />
+
+    </menuitem>
+
+</odoo>

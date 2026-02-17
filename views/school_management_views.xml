@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+
+    <!--    form view -->
+    <record id="school_management_student_view_form" model="ir.ui.view">
+        <field name="name">school.student.view.form</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <header>
+                        <button name="search_names" string="Search Student" type="object"/>
+                        <button name="read_favoirate_teachers" string="Read Favoirate teachers" type="object"/>
+                        <button name="eligible_for_sports" string="Sports Eligible student" type="object"/>
+                    </header>
+                    <group>
+                        <!--                   adding the fields-->
+                        <field name="user_id"/>
+                        <field name="name"/>
+                        <field name="enrollment_number"/>
+                        <field name="class_id"/>
+                        <field name="gender"/>
+                        <field name="gender_type" readonly="True"/>
+                        <field name="location"/>
+                        <field name="teacher_id" widget="many2many_tags"/>
+                        <field name="favoirate_teachers"/>
+                        <field name="dob"/>
+                        <field name="age"/>
+
+                    </group>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <!--    list view for a student-->
+    <record id="school_management_student_list_view" model="ir.ui.view">
+        <field name="name">school.management.student.list.view</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="enrollment_number"/>
+                <field name="class_id"/>
+                <field name="gender"/>
+                <field name="gender_type"/>
+                <field name="teacher_id" widget="many2many_tags_avatar"/>
+                <field name="favoirate_teachers"/>
+                <field name="location"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_school_management_student" model="ir.actions.act_window">
+        <field name="name">School Management</field>
+        <field name="res_model">school.student</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

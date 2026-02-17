@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="rule_student_see_own_data" model="ir.rule">
+        <field name="name">Student : Access only same student</field>
+        <field name="model_id" ref="model_school_student"/>
+        <field name="groups" eval="[(4, ref('school_management.res_group_school_student'))]"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+    </record>
+
+    <record id="rule_student_see_own_class" model="ir.rule">
+        <field name="name">Student can only see own class</field>
+        <field name="model_id" ref="model_school_classes"/>
+        <field name="groups" eval="[(4, ref('school_management.res_group_school_student'))]"/>
+        <field name="domain_force">[('student_ids.user_id', '=', user.id)]</field>
+    </record>
+
+    <!--    student can see his own teacher details who is its favoirate-->
+    <record id="rule_student_see_own_teacher" model="ir.rule">
+        <field name="name">Student can only see own favoirate teacher</field>
+        <field name="model_id" ref="model_school_teacher"/>
+        <field name="groups" eval="[(4, ref('school_management.res_group_school_student'))]"/>
+        <field name="domain_force">[('student_lists.user_id', '=', user.id)]</field>
+    </record>
+
+    <record id="rule_teacher_see_own_data" model="ir.rule">
+        <field name="name">Teacher : Access only same teacher</field>
+        <field name="model_id" ref="model_school_teacher"/>
+        <field name="groups" eval="[(4, ref('school_management.res_group_school_teacher'))]"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+    </record>
+
+    <record id="rule_teacher_see_assigned_students" model="ir.rule">
+        <field name="name">Teacher: See Only Assigned Students</field>
+        <field name="model_id" ref="model_school_student"/>
+        <field name="groups" eval="[(4, ref('school_management.res_group_school_teacher'))]"/>
+        <field name="domain_force">[('teacher_id.user_id', 'in', [user.id])]</field>
+    </record>
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="res.groups" id="res_group_school_student">
+        <field name="name">Student</field>
+    </record>
+
+    <record model="res.groups" id="res_group_school_teacher">
+        <field name="name">Teacher</field>
+    </record>
+
+    <!--     Category -->
+    <record model="res.groups" id="res_group_school_Admin">
+        <field name="name">Admin</field>
+    </record>
+
+</odoo>

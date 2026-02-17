@@ -1,0 +1,16 @@
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<odoo>
+    <record id="view_order_form_school_inherit" model="ir.ui.view">
+    <field name="name">sale.order.form.school.inherit</field>
+    <field name="model">sale.order</field> <!-- by default this is the name in Sale module -->
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml"><!-- this is the form views ref from where we want to add 2 fields -->
+
+        <xpath expr="//field[@name='partner_id']" position="after">
+            <field name="student_id"/>
+            <field name="admission_no"/>
+        </xpath>
+
+    </field>
+</record>
+</odoo>
