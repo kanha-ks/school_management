@@ -9,7 +9,7 @@
                 <header>
                     <button name="search_names" string="Search Student" type="object"/>
                     <button name="read_favoirate_teachers" string="Read Favoirate teachers" type="object"/>
-                    <button name="eligible_for_sports" string="Sports Eligible student" type="object"/>
+                    <button name="eligible_for_sports" string="Sports Eligible Student" type="object"/>
                 </header>
                 <sheet>
                     <group>
