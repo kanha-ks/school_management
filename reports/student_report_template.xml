@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!--    creating the template for the report -->
+    <template id="school_student_profile_report_template">
+        <t t-call="web.html_container">
+            <style>
+                table, th, td{
+                border:1px solid black;
+                }
+            </style>
+            <t t-foreach="docs" t-as="doc">
+              <t t-call="school_management.school_student_sub_profile_template"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="school_student_sub_profile_template">
+          <t t-call="web.external_layout">
+
+              <div class="barcode_generator">
+                  <img src="/report/barcode/QR/hello-Kanha" height="80" width="80" alt="Barcode of Data"/>
+              </div>
+                    <div class="page">
+                        <h1 style="color:Blue" t-field="doc.name"/>
+                    </div>
+
+                    <div>
+                        <table style="width:100%">
+                            <tr>
+                                <th>Favorite Teacher</th>
+                                <th>Class</th>
+                                <th>Subjects</th>
+                                <th>Date of Birth</th>
+                                <th>Age</th>
+                                <th>Fees Status</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span t-field="doc.favoirate_teachers"/>
+                                </td>
+                                <td>
+                                    <span t-field="doc.class_id.name"/>
+                                </td>
+                                <td>
+                                    <t t-foreach="doc.class_id.subject_ids" t-as="subject">
+                                        <span t-field="subject.name"/>
+                                        <br/>
+                                    </t>
+                                </td>
+                                <td>
+                                    <span t-field="doc.dob"/>
+
+                                </td>
+                                <td>
+                                    <span t-field="doc.age"/>
+                                </td>
+                                <td>
+                                    <p t-if="doc.fee_status" style="color:green; font-weight:bold;">Paid</p>
+                                    <p t-else="" style="color:red; font-weight:bold;">Unpaid</p>
+<!--                                    <t t-if="doc.fee_status ">-->
+<!--                                        <span style="color: green; font-weight: bold;">Paid</span>-->
+<!--                                    </t>-->
+<!--                                    <t t-else="">-->
+<!--                                        <span style="color: red; font-weight: bold;">Unpaid</span>-->
+<!--                                    </t>-->
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+    </template>
+
+    <!--    report actions-->
+    <record id="action_school_student_profile_template" model="ir.actions.report">
+        <field name="name">Student Card Details</field>
+        <field name="model">school.student</field>
+        <!--We have to provide the model name in which we want to generate the report -->
+        <field name="report_type">qweb-pdf</field> <!---Type of pdf file-->
+        <field name="report_name">school_management.school_student_profile_report_template</field>
+        <field name="report_file">school_management.school_student_profile_report_template</field>
+        <field name="print_report_name">Student-Card</field>
+        <field name="binding_model_id" ref="model_school_student"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

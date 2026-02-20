@@ -7,8 +7,9 @@
     'description': 'The school management system',
     'summary': 'The School Management System',
     'category': 'School',
-    'depends': ['base', 'web', 'contacts', 'sale'],
+    'depends': ['base', 'web', 'contacts', 'sale', 'mail'],
     'data': [
+        'data/server_action.xml',
         'security/school_groups.xml',
         'security/ir.model.access.csv',
         'security/school_management_rules_security.xml',
@@ -19,6 +20,7 @@
         'views/school_management_subject_views.xml',
         'views/school_management_class_views.xml',
         'views/school_management_menus.xml',
+        'reports/student_report_template.xml',
     ],
     'sequence': 2,
     'license': 'LGPL-3',

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="action_student_fees_payment" model="ir.actions.server">
+        <field name="name">Confirm Fee Payment</field>
+        <field name="model_id" ref="model_school_student"/>
+        <field name="binding_model_id" ref="model_school_student"/>
+        <field name="state">code</field>
+        <field name="code">records.confirm_fee_status()</field>
+    </record>
+</odoo>
