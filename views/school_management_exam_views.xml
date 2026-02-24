@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    this is the view that will display on the screen-->
+    <record id="school_management_exam_form_view" model="ir.ui.view">
+        <field name="name">school.exam.view.form</field>
+        <field name="model">school.exams</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="student_id"/>
+                    <group>
+                        <field name="subject_id"/>
+                        <field name="marks"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    this is the list view-->
+    <record id="school_management_exam_list_view" model="ir.ui.view">
+        <field name="name">school.exam.view.form</field>
+        <field name="model">school.exams</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="student_id"/>
+                <field name="subject_id"/>
+                <field name="marks"/>
+            </list>
+        </field>
+    </record>
+
+    <!--    this is the action-->
+    <record id="action_school_management_exams" model="ir.actions.act_window">
+        <field name="name">Exams</field>
+        <field name="res_model">school.exams</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-<!--    form view -->
+    <!--    form view -->
     <record id="school_management_student_view_form" model="ir.ui.view">
         <field name="name">school.student.view.form</field>
         <field name="model">school.student</field>
@@ -16,19 +16,39 @@
                         <group>
                             <field name="user_id"/>
                             <field name="name"/>
-                            <field name="enrollment_number"/>
-                            <field name="class_id"/>
-                            <field name="gender"/>
-                            <field name="gender_type" readonly="True"/>
-                            <field name="location"/>
-                            <field name="teacher_id" widget="many2many_tags"/>
-                            <field name="favoirate_teachers"/>
-                            <field name="fee_status"/>
-                            <field name="dob"/>
-                            <field name="age"/>
                         </group>
                         <chatter/>
                     </group>
+                    <notebook>
+                        <page string="Personal Information">
+                            <group>
+                                <field name="enrollment_number"/>
+                                <field name="class_id"/>
+                                <field name="gender"/>
+                                <field name="gender_type" readonly="True"/>
+                                <field name="location"/>
+                                <field name="teacher_id" widget="many2many_tags"/>
+                                <field name="favoirate_teachers"/>
+                                <field name="fee_status"/>
+                                <field name="dob"/>
+                                <field name="age"/>
+                            </group>
+                        </page>
+                        <page string="Marks">
+                            <group>
+                                <field name="exam_id">
+                                    <list editable="bottom">
+                                        <field name="subject_id">
+                                            <list>
+                                                <field name="name"/>
+                                            </list>
+                                        </field>
+                                        <field name="marks"/>
+                                    </list>
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

@@ -22,6 +22,14 @@
         <field name="domain_force">[('student_lists.user_id', '=', user.id)]</field>
     </record>
 
+    <!--    student can see his own marks in exam-->
+    <record id="rule_student_see_own_marks" model="ir.rule">
+        <field name="name">Student can only see own marks</field>
+        <field name="model_id" ref="model_school_exams"/>
+        <field name="groups" eval="[(4, ref('school_management.res_group_school_student'))]"/>
+        <field name="domain_force">[('student_id.user_id', '=', user.id)]</field>
+    </record>
+
     <record id="rule_teacher_see_own_data" model="ir.rule">
         <field name="name">Teacher : Access only same teacher</field>
         <field name="model_id" ref="model_school_teacher"/>

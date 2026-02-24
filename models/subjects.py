@@ -16,3 +16,4 @@ class Subjects(models.Model):
     # -------------------------------------------------------------------------
     name = fields.Char(string="Subject")
     class_name = fields.Many2many('school.classes', string="Class")
+    subject_ids = fields.One2many('school.exams', 'subject_id', string="Exam Subject")

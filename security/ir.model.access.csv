@@ -2,17 +2,19 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 
 access_school_subject_teacher,school.subject.teacher,school_management.model_school_subject,school_management.res_group_school_teacher,1,0,0,0
 access_school_classes_teacher,school.classes.teacher,school_management.model_school_classes,school_management.res_group_school_teacher,1,0,0,0
-access_school_result_teacher,school.result.teacher,school_management.model_school_result,school_management.res_group_school_teacher,1,1,1,1
 access_school_teacher_teacher,school.teacher.teacher,school_management.model_school_teacher,school_management.res_group_school_teacher,1,1,0,0
 access_school_student_teacher,school.student.teacher,school_management.model_school_student,school_management.res_group_school_teacher,1,1,0,1
+access_school_exams_teacher,school.exam.teacher,school_management.model_school_exams,school_management.res_group_school_teacher,1,1,1,1
 
 access_school_student_student,school.student.student,school_management.model_school_student,school_management.res_group_school_student,1,1,0,0
 access_school_subject_student,school.subject.student,school_management.model_school_subject,school_management.res_group_school_student,1,0,0,0
 access_school_teacher_student,school.teacher.student,school_management.model_school_teacher,school_management.res_group_school_student,1,0,0,0
-access_school_result_student,school.result.student,school_management.model_school_result,school_management.res_group_school_student,1,0,0,0
 access_school_classes_student,school.classes.student,school_management.model_school_classes,school_management.res_group_school_student,1,0,0,0
+access_school_exams_student,school.exam.student,school_management.model_school_exams,school_management.res_group_school_student,1,0,0
 
 access_school_student_admin,school.student.admin,school_management.model_school_student,school_management.res_group_school_Admin,1,1,1,1
 access_school_teacher_admin,school.teacher.admin,school_management.model_school_teacher,school_management.res_group_school_Admin,1,1,1,1
 access_school_subject_admin,school.subject.admin,school_management.model_school_subject,school_management.res_group_school_Admin,1,1,1,1
 access_school_classes_admin,school.classes.admin,school_management.model_school_classes,school_management.res_group_school_Admin,1,1,1,1
+access_school_exams_admin,school.exam.admin,school_management.model_school_exams,school_management.res_group_school_Admin,1,1,1,1
+

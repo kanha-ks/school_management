@@ -27,9 +27,9 @@
                   action="action_school_management_class"
                   sequence="6"/>
 
-        <menuitem id="menu_school_management_Result"
-                  name="Result"
-                  action="action_school_management_result"
+         <menuitem id="menu_school_management_exams"
+                  name="Exam"
+                  action="action_school_management_exams"
         />
 
     </menuitem>
