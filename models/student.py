@@ -45,7 +45,7 @@ class Student(models.Model):
     dob = fields.Date(string="DOB", copy=False)
     age = fields.Integer(string="Age", compute="_compute_age", store=True)
 
-    exam_id = fields.One2many('school.exams', 'student_id', string="Exam") #for creating the exam field for the relationship purpose only
+    exam_ids = fields.One2many('school.exams', 'student_id', string="Exam") #for creating the exam field for the relationship purpose only
 
     fee_status = fields.Boolean(string="Fees", default=False)
     # -------------------------------------------------------------------------

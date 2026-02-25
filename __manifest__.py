@@ -20,6 +20,7 @@
         'views/school_management_exam_views.xml',
         'views/school_management_menus.xml',
         'reports/student_report_template.xml',
+        'reports/student_exam_report_template.xml',
     ],
     'sequence': 2,
     'license': 'LGPL-3',

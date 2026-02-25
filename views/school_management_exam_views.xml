@@ -30,10 +30,49 @@
         </field>
     </record>
 
+
+<!--    pivot view-->
+    <record id="pivot_view_school_management_exams" model="ir.ui.view">
+        <field name="name">school.management.exams.pivot</field>
+        <field name="model">school.exams</field>
+        <field name="arch" type="xml">
+            <pivot string="Exam information from pivot view" disable_linking="1">
+                <field name="name" type="row"/>
+                <field name="student_id" type="col"/>
+                <field name="subject_id" type="row"/>
+                <field name="marks" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+<!--    graph view-->
+     <record id="school_management_student_exam_graph" model="ir.ui.view">
+            <field name="name">school.management.student.exam.graph</field>
+            <field name="model">school.exams</field>
+            <field name="arch" type="xml">
+                <graph string="Exam Statistics" sample="1">
+                    <field name="marks"/>
+                    <field name="subject_id"/>
+                    <field name="student_id"/>
+                </graph>
+            </field>
+         </record>
+
+<!--    <record id="map_view_student" model="ir.ui.view">-->
+<!--    <field name="name">map.view.student</field>-->
+<!--    <field name="model">school.exams</field>-->
+<!--    <field name="arch" type="xml">-->
+<!--        <map string="Students"-->
+<!--             default_zoom="12">-->
+<!--            <field name="student_id"/>-->
+<!--        </map>-->
+<!--    </field>-->
+<!--</record>-->
+
     <!--    this is the action-->
     <record id="action_school_management_exams" model="ir.actions.act_window">
         <field name="name">Exams</field>
         <field name="res_model">school.exams</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">list,form,pivot,graph</field>
     </record>
 </odoo>

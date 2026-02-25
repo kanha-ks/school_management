@@ -16,6 +16,7 @@
                         <group>
                             <field name="user_id"/>
                             <field name="name"/>
+                            <field name="class_id"/>
                         </group>
                         <chatter/>
                     </group>
@@ -23,7 +24,6 @@
                         <page string="Personal Information">
                             <group>
                                 <field name="enrollment_number"/>
-                                <field name="class_id"/>
                                 <field name="gender"/>
                                 <field name="gender_type" readonly="True"/>
                                 <field name="location"/>
@@ -36,7 +36,7 @@
                         </page>
                         <page string="Marks">
                             <group>
-                                <field name="exam_id">
+                                <field name="exam_ids">
                                     <list editable="bottom">
                                         <field name="subject_id">
                                             <list>
@@ -73,9 +73,103 @@
         </field>
     </record>
 
+    <!-- kanban view-->
+    <!--    <record id="view_school_student_kanban" model="ir.ui.view">-->
+    <!--        <field name="name">school.student.kanban</field>-->
+    <!--        <field name="model">school.student</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <kanban class="o_kanban_mobile">-->
+    <!--                <field name="name"/>-->
+    <!--                <field name="age"/>-->
+    <!--                <field name="enrollment_number"/>-->
+    <!--                <field name="class_id"/>-->
+    <!--                <field name="gender"/>-->
+    <!--                <templates>-->
+    <!--                    <t t-name="card" class="row g-0">-->
+    <!--                        <div>-->
+    <!--                            <field class="fw-bolder" name="name"/>-->
+    <!--                        </div>-->
+    <!--                        <div>-->
+    <!--                            <field class="float-end" name="age"/>-->
+    <!--                        </div>-->
+
+    <!--                        <div>-->
+    <!--                            <field class="float-end" name="enrollment_number"/>-->
+    <!--                        </div>-->
+    <!--                        <div>-->
+    <!--                            <field class="float-end" name="class_id"/>-->
+    <!--                        </div>-->
+    <!--                        <div>-->
+    <!--                            <field class="float-end" name="gender"/>-->
+    <!--                        </div>-->
+    <!--                    </t>-->
+    <!--                </templates>-->
+    <!--            </kanban>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+
+    <record id="view_school_student_kanban" model="ir.ui.view">
+        <field name="name">school.student.kanban</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="name"/>
+                <field name="age"/>
+                <field name="enrollment_number"/>
+                <field name="class_id"/>
+                <field name="gender"/>
+                <templates>
+                    <!--                    <t t-name="kanban-box">          this is deprecated in odoo-->
+                    <t t-name="card">
+                        <div class="">
+                            <t t-esc="record.name.value"/>
+                        </div>
+                        <div>
+                            <t t-esc="record.enrollment_number.value"/>
+                        </div>
+                        <div>
+                            <t t-esc="record.gender.value"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!--    Pivot view for student-->
+    <record id="pivot_view_school_management_student" model="ir.ui.view">
+        <field name="name">school.management.student.pivot</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <pivot string="Students from pivot view">
+                <field name="name" type="row"/>
+                <field name="age" type="row"/>
+                <field name="dob" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!--    &lt;!&ndash;    Calendar view &ndash;&gt;-->
+    <!--    <record model="ir.ui.view" id="school_student_view_calendar">-->
+    <!--        <field name="name">student.calendar.view</field>-->
+    <!--        <field name="model">school.student</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <calendar string="DOB students" date_start="dob" color="name" mode="year">-->
+    <!--                <field name="name"/>-->
+    <!--            </calendar>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+
     <record id="action_school_management_student" model="ir.actions.act_window">
         <field name="name">School Management</field>
         <field name="res_model">school.student</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">list,form,kanban,pivot</field>
     </record>
 </odoo>
+
+
+        <!--                            <strong>-->
+        <!--                                <field name="name"/>-->
+        <!--                            </strong>-->
