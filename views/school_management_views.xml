@@ -17,6 +17,13 @@
                             <field name="user_id"/>
                             <field name="name"/>
                             <field name="class_id"/>
+                            <!--                            expression widget in form view to use-->
+                            <field name="expression_field" widget="expression"/>
+                            <field name="result_field" readonly="1"/>
+
+                            <!--                            toggle widget -->
+                            <field name="performance_toggle" widget="three_state_toggle"/>
+                            <!--                            <field name="performance_level" readonly="1"/>-->
                         </group>
                         <chatter/>
                     </group>
@@ -69,6 +76,9 @@
                 <field name="favoirate_teachers"/>
                 <field name="location"/>
                 <field name="fee_status"/>
+
+<!--                <field name="performance_toggle" widget="three_state_toggle" readonly="1"/>-->
+
             </list>
         </field>
     </record>
@@ -122,7 +132,7 @@
                 <templates>
                     <!--                    <t t-name="kanban-box">          this is deprecated in odoo-->
                     <t t-name="card">
-                        <div class="">
+                        <div>
                             <t t-esc="record.name.value"/>
                         </div>
                         <div>

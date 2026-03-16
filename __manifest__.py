@@ -21,7 +21,17 @@
         'views/school_management_menus.xml',
         'reports/student_report_template.xml',
         'reports/student_exam_report_template.xml',
+        'reports/student_exam_report_template_custom.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'school_management/static/src/js/expression_widget.js',
+            'school_management/static/src/widgets/expression_widget.xml',
+
+            'school_management/static/src/js/three_state_toggle.js',
+            'school_management/static/src/widgets/three_state_toggle.xml',
+        ],
+    },
     'sequence': 2,
     'license': 'LGPL-3',
     'installable': True,

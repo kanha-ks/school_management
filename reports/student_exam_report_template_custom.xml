@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="school_student_exam_report_template">
+        <t>
+            <t t-call="web.external_layout">
+                <t t-call="web.html_container">
+
+                    <style>
+                        body {
+                        background-color: #f0f2f5;
+                        font-family: Arial, sans-serif;
+                        }
+
+                        table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        margin-top: 20px;
+                        }
+
+                        th, td {
+                        border: 1px solid black;
+                        padding: 15px;
+                        text-align: center;
+                        font-size: 18px;
+                        }
+
+                        th {
+                        background-color: LightGray;
+                        }
+
+                        h1 {
+                        color: Gray;
+                        margin-top : 20px;
+                        }
+
+                        .highlight {
+                        color: #e74c3c;
+                        font-weight: bold;
+                        }
+                    </style>
+
+                    <t t-foreach="docs" t-as="doc">
+                        <h1>
+                            Name :
+                            <t t-esc="doc.name"/>
+                        </h1>
+
+                        <span>Enrollment :
+                            <t t-esc="doc.enrollment_number"/>
+                        </span>
+                        <br/>
+                        <span>Gender :
+                            <t t-esc="doc.gender"/>
+                        </span>
+                        <br/>
+                        <span>Date of Birth :
+                            <t t-esc="doc.dob"/>
+                        </span>
+                        <br/>
+                        <span>Age :
+                            <t t-esc="doc.age"/>
+                        </span>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Subject</th>
+                                    <th>Marks</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <t t-foreach="doc.exam_ids" t-as="exam">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="exam.subject_id.name"/>
+                                        </td>
+
+                                        <td>
+                                            <t t-esc="exam.marks"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_school_student_exam_report_template" model="ir.actions.report">
+        <field name="name">Student Exam Report</field>
+        <field name="model">school.student</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">school_management.school_student_exam_report_template</field>
+        <field name="report_file">school_management.school_student_exam_report_template</field>
+        <field name="binding_model_id" ref="model_school_student"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

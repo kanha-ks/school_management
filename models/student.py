@@ -48,6 +48,23 @@ class Student(models.Model):
     exam_ids = fields.One2many('school.exams', 'student_id', string="Exam") #for creating the exam field for the relationship purpose only
 
     fee_status = fields.Boolean(string="Fees", default=False)
+
+    # expression field in student model
+    expression_field = fields.Char(string="Expression" ,store= True)
+
+    result_field = fields.Float(string="Expression Sum", store=False)
+
+
+    # toggle 3 state for std
+    performance_toggle = fields.Char(string="Performance Toggle")
+
+    # # performance_level = fields.Char(string="Performance Level", store=True)
+    # performance_level = fields.Selection([
+    #     ('poor', 'Poor'),
+    #     ('average', 'Average'),
+    #     ('excellent', 'Excellent'),
+    # ], string="Performance Level", store=True)
+
     # -------------------------------------------------------------------------
     # COMPUTE METHODS
     # -------------------------------------------------------------------------

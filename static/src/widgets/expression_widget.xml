@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="school_management.ExpressionWidget">
+        <t>
+             <span>
+                <input class="o_input" type="text"
+                       placeholder="Enter math expression e.g. 2+2"
+                       t-on-change="onInputChange"/>
+            </span>
+        </t>
+
+    </t>
+</templates>
+
+        <!--<?xml version="1.0" encoding="UTF-8" ?>-->
+        <!--<templates xml:space="preserve">-->
+        <!--    <t t-name="school_management.ExpressionWidget">-->
+        <!--        <t>-->
+        <!--            <span>-->
+        <!--                <t t-esc="calculateResult()"/>-->
+        <!--            </span>-->
+        <!--        </t>-->
+        <!--    </t>-->
+
+        <!--        <t t-if="props.readonly">-->
+        <!--            <span class="o_expr_result">-->
+        <!--                <t t-esc="calculateResult(props.value)"/>-->
+        <!--            </span>-->
+        <!--        </t>-->
+
+        <!--        <t t-else="">-->
+        <!--            <input-->
+        <!--                type="text"-->
+        <!--                class="o_input"-->
+        <!--                t-att-value="props.value or ''"-->
+        <!--                t-on-change="onChangeInput"-->
+        <!--                placeholder="Enter expression (e.g. 10+5)"/>-->
+        <!--        </t>-->
+        <!--</templates>-->

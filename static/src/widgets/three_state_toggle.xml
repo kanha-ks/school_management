@@ -1,0 +1,65 @@
+<templates xml:space="preserve">
+    <t t-name="school_management.ThreeStateToggle">
+        <div class="o_three_toggle">
+<!--             <span> element doesn't have a value attribute by default,ev.target.value is undefined-->
+            <span class="badge bg-danger" t-on-click="() => this.toggleState('poor')">
+                Poor
+            </span>
+            <span class="badge bg-warning" t-on-click="() => this.toggleState('average')">
+                Average
+            </span>
+            <span class="badge bg-success" t-on-click="() => this.toggleState('excellent')">
+                Excellent
+            </span>
+        </div>
+
+        <!-- Niche field me selected value show karna -->
+        <div class="o_field_widget">
+            Selected: <t t-esc="props.record.data.performance_toggle"/>
+        </div>
+
+
+        <!--        <div class="o_wrap_field d-flex d-sm-contents">-->
+        <!--            <div class="o_cell o_wrap_label flex-grow-1 flex-sm-grow-0 text-break text-900">-->
+        <!--                <label class="o_form_label">Selected:</label>-->
+        <!--            </div>-->
+        <!--            <div class="o_cell o_wrap_input flex-grow-1 flex-sm-grow-0">-->
+        <!--                <span class="o_field_widget o_readonly_modifier text-capitalize">-->
+        <!--                    <t t-esc="props.record.data.performance_toggle || 'None'"/>-->
+        <!--                </span>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--        <div class="o_field_widget o_form_field o_form_label o_field_char">-->
+        <!--        <label class="o_form_label">Selected:</label>-->
+        <!--            <div class="o_form_field_value">-->
+        <!--                 <t t-esc="props.record.data.performance_toggle"/>-->
+        <!--            </div>-->
+        <!--        </div>-->
+
+    </t>
+</templates>
+
+        <!--<templates xml:space="preserve">-->
+
+
+        <!--<t t-name="school_management.ThreeStateToggle">-->
+
+        <!--    <div class="o_three_toggle" t-on-click="toggleState">-->
+
+        <!--        <span t-if="state.position === 0" class="badge bg-danger">-->
+        <!--            Poor-->
+        <!--        </span>-->
+
+        <!--        <span t-if="state.position === 1" class="badge bg-warning">-->
+        <!--            Average-->
+        <!--        </span>-->
+
+        <!--        <span t-if="state.position === 2" class="badge bg-success">-->
+        <!--            Excellent-->
+        <!--        </span>-->
+
+        <!--    </div>-->
+
+        <!--</t>-->
+
+        <!--</templates>-->

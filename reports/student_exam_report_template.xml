@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <template id="school_student_exam_report_template">
+    <template id="school_student_exam_report_template_custom">
         <t>
             <t t-call="web.external_layout">
                 <t t-call="web.html_container">
@@ -40,62 +40,45 @@
                         }
                     </style>
 
-                    <t t-foreach="docs" t-as="doc">
-                        <h1>
-                            Name :
-                            <t t-esc="doc.name"/>
-                        </h1>
+                    <table>
+                        <thead>
+                            <th>
+                                Name
+                            </th>
+                            <t t-foreach="docs.exam_ids.subject_id" t-as="subj">
+                                <th>
+                                    <t t-esc="subj.name"/>
+                                </th>
+                            </t>
+                        </thead>
 
-                        <span>Enrollment :
-                            <t t-esc="doc.enrollment_number"/>
-                        </span>
-                        <br/>
-                        <span>Gender :
-                            <t t-esc="doc.gender"/>
-                        </span>
-                        <br/>
-                        <span>Date of Birth :
-                            <t t-esc="doc.dob"/>
-                        </span>
-                        <br/>
-                        <span>Age :
-                            <t t-esc="doc.age"/>
-                        </span>
-
-                        <table>
-                            <thead>
+                        <tbody>
+                            <t t-foreach="docs" t-as="doc">
                                 <tr>
-                                    <th>Subject</th>
-                                    <th>Marks</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <t t-foreach="doc.exam_ids" t-as="exam">
-                                    <tr>
-                                        <td>
-                                            <t t-esc="exam.subject_id.name"/>
-                                        </td>
-
+                                    <td>
+                                        <t t-esc="doc.name"/>
+                                    </td>
+                                    <t t-foreach="doc.exam_ids" t-as="exam">
                                         <td>
                                             <t t-esc="exam.marks"/>
                                         </td>
-                                    </tr>
-                                </t>
-                            </tbody>
-                        </table>
-                    </t>
+                                    </t>
+                                </tr>
+                            </t>
+
+                        </tbody>
+                    </table>
                 </t>
             </t>
         </t>
     </template>
 
-    <record id="action_school_student_exam_report_template" model="ir.actions.report">
-        <field name="name">Student Exam Report</field>
+    <record id="action_school_student_exam_report_template_custom" model="ir.actions.report">
+        <field name="name">Task Student Exam Report</field>
         <field name="model">school.student</field>
         <field name="report_type">qweb-html</field>
-        <field name="report_name">school_management.school_student_exam_report_template</field>
-        <field name="report_file">school_management.school_student_exam_report_template</field>
+        <field name="report_name">school_management.school_student_exam_report_template_custom</field>
+        <field name="report_file">school_management.school_student_exam_report_template_custom</field>
         <field name="binding_model_id" ref="model_school_student"/>
         <field name="binding_type">report</field>
     </record>
